@@ -76,7 +76,7 @@ metadata:
   name: cucumber-md-0
 spec:
   clusterName: cucumber
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels: null
   template:
