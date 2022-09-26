@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cucumber
+spec:
+  destination:
+    name: ''
+    namespace: cucumber
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: cucumber
+    repoURL: 'https://github.com/alleaffengaffen/clusters.git'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
