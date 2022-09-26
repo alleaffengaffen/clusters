@@ -23,8 +23,6 @@ metadata:
 spec:
   region: eu-west-2
   sshKeyName: yubikey
-  bastion:
-    enabled: true
 ---
 apiVersion: controlplane.cluster.x-k8s.io/v1beta1
 kind: KubeadmControlPlane
@@ -103,6 +101,8 @@ spec:
       iamInstanceProfile: nodes.cluster-api-provider-aws.sigs.k8s.io
       instanceType: t3a.xlarge
       sshKeyName: yubikey
+      spotMarketOptions:
+        maxPrice: ""
 ---
 apiVersion: bootstrap.cluster.x-k8s.io/v1beta1
 kind: KubeadmConfigTemplate
