@@ -1,3 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: clusters
+  namespace: argocd
+spec:
+  description: Project contains the cluster of clusters and all clusters
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: '*'
+    server: 'https://kubernetes.default.svc'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -11,7 +28,7 @@ spec:
     path: apps
     repoURL: 'https://github.com/alleaffengaffen/clusters.git'
     targetRevision: HEAD
-  project: default
+  project: clusters
   syncPolicy:
     syncOptions:
       - CreateNamespace=true

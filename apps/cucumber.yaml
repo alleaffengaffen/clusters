@@ -11,7 +11,7 @@ spec:
     path: cucumber
     repoURL: 'https://github.com/alleaffengaffen/clusters.git'
     targetRevision: HEAD
-  project: default
+  project: clusters
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
