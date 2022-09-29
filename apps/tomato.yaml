@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tomato
+spec:
+  destination:
+    name: ''
+    namespace: tomato
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: tomato
+    repoURL: 'https://github.com/alleaffengaffen/clusters.git'
+    targetRevision: HEAD
+  project: clusters
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
